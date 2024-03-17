@@ -18,18 +18,6 @@ class ListNode:
     def setNext(self,newnext):
         self.next = newnext
 
-class Solution:
-    def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        pass
-
-
-#%%
-list1 = [1,2,4]
-temp = ListNode(list1)
-temp.getData()
-
-
-
 
 #%%
 
@@ -39,27 +27,36 @@ class ListNode:
         self.val = val
         self.next = next
 
-# list1 = 1 -> 2 -> 4 
-# list2 = 1 -> 3 -> 4
-
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
-        dummy = ListNode()  
-        head = dummy  
+        # Initialize a dummy ListNode that acts as the starting point of the merged list
+        starting = ListNode()  
+        # Initialize a pointer that will be used to build the merged list
+        pointer = starting  
 
+        # Iterate as long as neither of the lists is exhausted
         while list1 and list2:
+            # If the current node in list1 has a smaller value
             if list1.val < list2.val:
-                head.next = list1
+                # Link this smaller node to the merged list
+                pointer.next = list1
+                # Move forward in list1
                 list1 = list1.next
             else:
-                head.next = list2
+                # If the current node in list2 is smaller or equal, link it to the merged list
+                pointer.next = list2
+                # Move forward in list2
                 list2 = list2.next
 
-            head = head.next
+            # Move the pointer forward in the merged list
+            pointer = pointer.next
 
-        head.next = list1 or list2
+        # After exiting the loop, link the remaining elements of the non-exhausted list
+        pointer.next = list1 or list2
 
-        return dummy.next  
+        # Return the head of the merged list, which is the next element after the dummy node
+        return starting.next  
+
 
 
 
