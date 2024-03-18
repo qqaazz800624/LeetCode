@@ -30,14 +30,14 @@ class ListNode:
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
         # Initialize a dummy ListNode that acts as the starting point of the merged list
-        starting = ListNode()  
+        start = ListNode()  
         # Initialize a pointer that will be used to build the merged list
-        pointer = starting  
+        pointer = start
 
         # Iterate as long as neither of the lists is exhausted
         while list1 and list2:
             # If the current node in list1 has a smaller value
-            if list1.val < list2.val:
+            if list1.val <= list2.val:
                 # Link this smaller node to the merged list
                 pointer.next = list1
                 # Move forward in list1
@@ -55,7 +55,7 @@ class Solution:
         pointer.next = list1 or list2
 
         # Return the head of the merged list, which is the next element after the dummy node
-        return starting.next  
+        return start.next  
 
 
 
