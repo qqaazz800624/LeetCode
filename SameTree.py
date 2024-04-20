@@ -19,27 +19,27 @@ class Solution:
         if p.val != q.val:
             return False
         
-        left_comparison = Solution().isSameTree(p.left, q.left)
-        right_comparison = Solution().isSameTree(p.right, q.right)
+        left_comparison = self.isSameTree(p.left, q.left)
+        right_comparison = self.isSameTree(p.right, q.right)
 
         return left_comparison and right_comparison
 
 
 #%%
 
-p = TreeNode(1,2,3)
+p = TreeNode(val=1, left = 2, right=3)
 q = TreeNode(1,2,3)
 
-p.left
+p.left 
 
 #%%
 
-Solution().isSameTree(p, q)
+c = TreeNode()
 
 
 #%%
 
-
+c.right
 
 
 #%%
